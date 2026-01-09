@@ -1,34 +1,46 @@
 #include <iostream>
+#include <ctime> //tämä että voidaan käyttää srand
 
 using namespace std;
-
-double keskiarvo(double taulukko[4]);
+int game(int maxnum);
 
 int main()
 {
-    /*float pi = 3.14;
-    string hello = "Hello Pi: ";
-    cout << hello << pi << endl;
-
-    double luvut[4];
-
-    cout << "hellon pituus on " << hello.length() << endl;*/
-
-    double luvut [4] = {1.23, 5.25, 4.14, 1.84};
-    double ka = keskiarvo(luvut);
-    keskiarvo(luvut);
-    cout << "keskiarvo on " << ka << endl;
+    int lkm = game(40);
+    cout << "Arvausten lukumaara on " << lkm << endl;
 
     return 0;
 }
 
-double keskiarvo(double taulukko[4]) {
+int game(int maxnum) {
 
-    double tulos = 0.0;
+    //Arvotaan satunnainen luku
+    srand(time(NULL));
+    int randomi = (rand() % maxnum) + 1;
+    int arvaus = 0;
+    int arvausten_lkm = 0;
 
-    for (int i=0; i < 4; i++) {
-        tulos += taulukko[i];
+
+    //Jos pelaajan vastaus ei ollut oikein, niin palataan kohtaan 2.
+    while (arvaus != randomi) {
+
+        //Kysytään pelaajalta arvaus
+        cout << "Anna arvaus: ";
+        cin >> arvaus;
+
+        //lisätään arvausten lukumäärää
+        arvausten_lkm++;
+
+        //Tarkistetaan onko arvaus pienempi, suurempi tai yhtäsuuri kuin luku
+        //Kerrotaan tarkistuksen tulos tyyliin ”luku on pienempi/suurempi” tai ”oikea vastaus”
+        if (arvaus == randomi) {
+            cout << "Arvasit oikein! Peli loppui." << endl;
+        } else if (arvaus < randomi) {
+            cout << "Kokeile isompaa!" << endl;
+        } else if (arvaus > randomi) {
+            cout << "Kokeile pienempaa!" << endl;
+        }
     }
-    tulos = tulos / 4.0;
-    return tulos;
+
+    return arvausten_lkm;
 }
