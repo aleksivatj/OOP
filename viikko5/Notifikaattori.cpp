@@ -26,13 +26,11 @@ void Notifikaattori::poista(Seuraaja *poistSeur)
     }
     while (alku != nullptr)
     {
-        //cout << "Seuraaja: " << alku->getNimi() << endl;
             if (alku->next == poistSeur)
             {
                 alku->next = alku->next->next;
                 return;
             }
-        alku->paivitys("Kaikki ok!");
         alku = alku->next;
     }
 }

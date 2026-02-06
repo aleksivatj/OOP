@@ -11,22 +11,18 @@ int main()
     Seuraaja *B = new Seuraaja("B");
     Seuraaja *C = new Seuraaja("C");
 
-    Notifikaattori *N = new Notifikaattori();
-    cout << endl;
-    N->lisaa(A);
-    N->lisaa(B);
-    N->lisaa(C);
-
+    Notifikaattori N;
     cout << endl;
 
-    N->tulosta();
-    N->postita("Tama on viesti 1");
-    N->poista(B);
-    N->postita("Tama on viesti 2");
+    N.lisaa(A);
+    N.lisaa(B);
+    N.lisaa(C);
+    cout << endl;
 
-    delete A;
-    delete B;
-    delete C;
+    N.tulosta();
+    N.postita("Tama on viesti 1");
+    N.poista(B); cout << endl;
+    N.postita("Tama on viesti 2");
 
     return 0;
 }
