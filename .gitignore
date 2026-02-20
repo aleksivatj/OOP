@@ -3,6 +3,7 @@ viikko2/game.h
 .vscode/
 build/
 **/*.pro.user
+*.pro
 
 # Prerequisites
 *.d
