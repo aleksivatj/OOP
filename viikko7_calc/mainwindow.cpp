@@ -175,24 +175,101 @@ void MainWindow::setActiveControls()
         qDebug() << "Tila 0 kontrollit";
         ui->plusButton->setEnabled(false);
         ui->minusButton->setEnabled(false);
+        ui->mulButton->setEnabled(false);
+        ui->divButton->setEnabled(false);
         ui->N1Button->setEnabled(true);
         ui->N2Button->setEnabled(true);
         ui->N3Button->setEnabled(true);
+        ui->N4Button->setEnabled(true);
+        ui->N5Button->setEnabled(true);
+        ui->N6Button->setEnabled(true);
+        ui->N7Button->setEnabled(true);
+        ui->N8Button->setEnabled(true);
+        ui->N9Button->setEnabled(true);
+        ui->N0Button->setEnabled(true);
     } else if (tila == 1) {
         qDebug() << "Tila 1 kontrollit";
         ui->plusButton->setEnabled(false);
         ui->minusButton->setEnabled(false);
+        ui->mulButton->setEnabled(false);
+        ui->divButton->setEnabled(false);
         ui->N1Button->setEnabled(true);
         ui->N2Button->setEnabled(true);
         ui->N3Button->setEnabled(true);
+        ui->N4Button->setEnabled(true);
+        ui->N5Button->setEnabled(true);
+        ui->N6Button->setEnabled(true);
+        ui->N7Button->setEnabled(true);
+        ui->N8Button->setEnabled(true);
+        ui->N9Button->setEnabled(true);
+        ui->N0Button->setEnabled(true);
     } else if (tila == 2) {
         qDebug() << "Tila 2 kontrollit";
         ui->plusButton->setEnabled(true);
         ui->minusButton->setEnabled(true);
+        ui->mulButton->setEnabled(true);
+        ui->divButton->setEnabled(true);
         ui->N1Button->setEnabled(false);
         ui->N2Button->setEnabled(false);
         ui->N3Button->setEnabled(false);
+        ui->N4Button->setEnabled(false);
+        ui->N5Button->setEnabled(false);
+        ui->N6Button->setEnabled(false);
+        ui->N7Button->setEnabled(false);
+        ui->N8Button->setEnabled(false);
+        ui->N9Button->setEnabled(false);
+        ui->N0Button->setEnabled(false);
     } else {
         qDebug() << "Mahdoton tila";
     }
 }
+
+void MainWindow::on_mulButton_clicked()
+{
+    if (tila == 2) {
+        //haetaan num1
+        QString n1 = ui->num1Edit->text();
+        num1 = n1.toInt();
+
+        //haetaan num2
+        QString n2 = ui->num2Edit->text();
+        num2 = n2.toInt();
+        qDebug() << num1 << " * " << num2;
+
+        //lasketaan tulos
+        result = num1 * num2;
+
+        //kirjoitetaan tulos edittiin
+        QString r = QString::number(result);
+        ui->resultEdit->setText(r);
+        tila = 0;
+        qDebug() << "nykyinen tila: " << tila;
+    }
+    setActiveControls();
+}
+
+
+void MainWindow::on_divButton_clicked()
+{
+    if (tila == 2) {
+        //haetaan num1
+        QString n1 = ui->num1Edit->text();
+        num1 = n1.toDouble();
+
+        //haetaan num2
+        QString n2 = ui->num2Edit->text();
+        num2 = n2.toDouble();
+        qDebug() << num1 << " / " << num2;
+
+        //lasketaan tulos
+        result = num1 / num2;
+
+        //kirjoitetaan tulos edittiin
+        QString r = QString::number(result);
+        ui->resultEdit->setText(r);
+        tila = 0;
+        qDebug() << "nykyinen tila: " << tila;
+    }
+    setActiveControls();
+}
+

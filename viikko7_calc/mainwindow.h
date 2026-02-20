@@ -48,11 +48,15 @@ private slots:
 
     void on_N0Button_clicked();
 
+    void on_mulButton_clicked();
+
+    void on_divButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-    int num1;
-    int num2;
-    int result;
+    float num1;
+    float num2;
+    float result;
     int tila = 0;
 };
 #endif // MAINWINDOW_H
