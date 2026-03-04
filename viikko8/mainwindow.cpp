@@ -6,7 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->infoLabel->setText("moro");
     setGameInfoText("Select playtime and press start game!", 15);
 }
 
@@ -79,7 +78,6 @@ void MainWindow::on_endBtn_clicked()
     timer = nullptr;
     ui->progressBar1->setValue(0);
     ui->progressBar2->setValue(0);
-    //tila 5
 }
 
 
